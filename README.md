@@ -26,3 +26,12 @@ Open `index.html` in a browser, or use the VS Code **Live Server** extension for
 1. Push this folder to a GitHub repository.
 2. In the repo, go to **Settings → Pages**.
 3. Under **Source**, choose **Deploy from a branch**, select `main` and `/ (root)`, then save.
+
+## Making Changes
+
+1. Ask Claude to make the changes.
+2. Preview them locally.
+3. Save your files, then run these commands (in terminal):
+   git add .
+   git commit -m "Update portfolio"
+   git push
