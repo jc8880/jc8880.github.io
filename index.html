@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Your Name.">
+  <title>Your Name | Portfolio</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo">Your Name</a>
+
+      <!-- Hamburger button (visible on small screens only) -->
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== Hero / Introduction ===== -->
+    <section id="home" class="hero">
+      <div class="container">
+        <p class="hero-greeting">Hi, I'm</p>
+        <h1 class="hero-title">Your Name</h1>
+        <p class="hero-subtitle">
+          A short sentence about who you are and what you do. This is placeholder
+          text you can replace later.
+        </p>
+        <a href="#projects" class="btn">View My Work</a>
+      </div>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="project-grid">
+          <!-- Copy one <article> block to add another project -->
+          <article class="project-card">
+            <div class="project-image">Image</div>
+            <div class="project-body">
+              <h3>Project One</h3>
+              <p>A brief description of the project and the technologies used.</p>
+              <a href="#" class="project-link">Learn more &rarr;</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">Image</div>
+            <div class="project-body">
+              <h3>Project Two</h3>
+              <p>A brief description of the project and the technologies used.</p>
+              <a href="#" class="project-link">Learn more &rarr;</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">Image</div>
+            <div class="project-body">
+              <h3>Project Three</h3>
+              <p>A brief description of the project and the technologies used.</p>
+              <a href="#" class="project-link">Learn more &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer id="contact" class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; <span id="year"></span> Your Name. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="mailto:you@example.com">Email</a></li>
+        <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts (loaded last so the page content exists first) -->
+  <script src="js/script.js"></script>
+</body>
+</html>
