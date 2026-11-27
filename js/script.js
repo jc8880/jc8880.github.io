@@ -11,6 +11,7 @@ function setMenuOpen(open) {
   navLinks.classList.toggle("open", open);
   navToggle.setAttribute("aria-expanded", String(open));
   navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  document.body.classList.toggle("menu-open", open);
 }
 
 if (navToggle && navLinks) {
@@ -23,9 +24,10 @@ if (navToggle && navLinks) {
     link.addEventListener("click", () => setMenuOpen(false));
   });
 
-  // Close when tapping outside the menu or pressing Escape
+  // Close when tapping outside the menu, on the empty space around
+  // the links in the full-screen menu, or pressing Escape
   document.addEventListener("click", (e) => {
-    if (!e.target.closest(".site-nav")) setMenuOpen(false);
+    if (!e.target.closest(".site-nav") || e.target === navLinks) setMenuOpen(false);
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setMenuOpen(false);

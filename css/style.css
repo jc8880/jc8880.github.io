@@ -392,25 +392,39 @@ section {
     display: flex;
   }
 
-  /* Dropdown: hidden until the button adds .open */
+  /* Full-screen menu: hidden until the button adds .open.
+     z-index -1 keeps it inside the nav's layer but behind the
+     name and the close button, so both stay visible on top. */
   .nav-links {
     display: none;
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    min-width: 180px;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
     flex-direction: column;
+    justify-content: center;
     align-items: stretch;
+    padding: 5rem 0 3rem;
+    border: none;
+    box-shadow: none;
   }
 
   .nav-links.open {
     display: flex;
   }
 
+  /* Each link is a full-width row, tappable edge to edge */
   .nav-link {
-    min-height: 44px;
-    padding: 0 16px;
-    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 72px;
+    padding: 0 1.5rem;
+    font-size: 28px;
+  }
+
+  /* Stop the page behind the menu from scrolling */
+  body.menu-open {
+    overflow: hidden;
   }
 }
 
