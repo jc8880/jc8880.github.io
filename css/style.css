@@ -134,10 +134,6 @@ section {
   white-space: nowrap;
 }
 
-.site-nav-name:hover {
-  color: var(--color-muted);
-}
-
 /* Links */
 .nav-link {
   display: inline-flex;
@@ -167,6 +163,46 @@ section {
 }
 
 .nav-links a:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+/* Menu (hamburger) button — hidden until the nav no longer fits */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 39px;
+  height: 39px;
+  padding: 0 11px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 18px 46px -18px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--color-text);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Lines turn into an X while the menu is open */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.nav-toggle:focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: 2px;
 }
@@ -201,28 +237,55 @@ section {
   background: var(--color-bg-alt);
 }
 
-/* Auto-fit grid: as many columns as fit, each at least 280px wide */
+/* Two columns; extra projects just add new rows.
+   Drops to one column on small screens (see section 8). */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  /* Caps how wide the cards can get; lower this to shrink them */
+  max-width: 900px;
+  margin: 0 auto;
 }
 
+/* The whole card is a link */
 .project-card {
+  display: block;
+  color: inherit;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s, box-shadow 0.25s;
 }
 
-/* Placeholder box — replace with an <img> later */
+/* Hover: card lifts, shadow deepens, image zooms slightly */
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: #c3c9d2;
+  box-shadow: 0 16px 32px -14px rgba(0, 0, 0, 0.28);
+}
+
+.project-card .project-image {
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.04);
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+/* Card thumbnail — cropped to fill a fixed-height box */
 .project-image {
-  height: 180px;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   background: var(--color-border);
-  color: var(--color-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .project-body {
@@ -289,24 +352,75 @@ section {
 }
 
 /* ---------- 8. Responsive (mobile) ---------- */
+/* Medium screens: the link box stays centered, and the name
+   moves to the far left edge of the page */
 @media (max-width: 768px) {
-  /* Nav moves to the bottom of the screen on small devices */
   .site-nav {
-    top: auto;
-    bottom: max(14px, env(safe-area-inset-bottom));
+    left: 0;
+    right: 0;
+    transform: none;
+    width: auto;
+    justify-content: center;
   }
 
-  html {
-    scroll-padding-top: 0;
+  .site-nav-name {
+    left: 1.5rem;
+    right: auto;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Narrow screens: the name + link box no longer fit side by side,
+   so the name moves to the left edge and the links go into a menu */
+@media (max-width: 480px) {
+  .site-nav {
+    left: 1.5rem;
+    right: 1.5rem;
+    transform: none;
+    width: auto;
+    justify-content: space-between;
   }
 
-  /* Leave room so the nav doesn't cover the footer */
-  body {
-    padding-bottom: 80px;
+  .site-nav-name {
+    position: static;
+    margin: 0;
+    padding: 0;
   }
 
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Dropdown: hidden until the button adds .open */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 180px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    min-height: 44px;
+    padding: 0 16px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
   section {
     padding: 3.5rem 0;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 
   .footer-content {

@@ -1,108 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal portfolio of Your Name.">
-  <title>Your Name | Portfolio</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Personal portfolio of Your Name." />
+    <title>Your Name | Portfolio</title>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navigation ===== -->
+    <header class="site-nav">
+      <a href="index.html" class="site-nav-name">Joshua Chin</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary">
+        <a href="#home" class="nav-link is-active" aria-current="page">Work</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </header>
 
-  <!-- ===== Navigation ===== -->
-  <header class="site-nav">
-    <a href="index.html" class="site-nav-name">Joshua Chin</a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="#home" class="nav-link is-active" aria-current="page">Work</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <!-- ===== Hero / Introduction ===== -->
-    <section id="home" class="hero">
-      <div class="container">
-        <p class="hero-greeting">Hi, I'm</p>
-        <h1 class="hero-title">Your Name</h1>
-        <p class="hero-subtitle">
-          A short sentence about who you are and what you do. This is placeholder
-          text you can replace later.
-        </p>
-        <a href="#projects" class="btn">View My Work</a>
-      </div>
-    </section>
-
-    <!-- ===== Projects ===== -->
-    <section id="projects" class="projects">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
-
-        <div class="project-grid">
-          <!-- Copy one <article> block to add another project -->
-          <article class="project-card">
-            <div class="project-image">Image</div>
-            <div class="project-body">
-              <h3>Sunquest</h3>
-              <p>A brief description of the project.</p>
-              <a href="sunquest.html" class="project-link">Learn more &rarr;</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-image">Image</div>
-            <div class="project-body">
-              <h3>Park Sketch</h3>
-              <p>A brief description of the project.</p>
-              <a href="parksketch.html" class="project-link">Learn more &rarr;</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-image">Image</div>
-            <div class="project-body">
-              <h3>Film</h3>
-              <p>A brief description of the project.</p>
-              <a href="film.html" class="project-link">Learn more &rarr;</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-image">Image</div>
-            <div class="project-body">
-              <h3>Pavilion</h3>
-              <p>A brief description of the project.</p>
-              <a href="pavilion.html" class="project-link">Learn more &rarr;</a>
-            </div>
-          </article>
+    <main>
+      <!-- ===== Hero / Introduction ===== -->
+      <section id="home" class="hero">
+        <div class="container">
+          <p class="hero-greeting">Hi, I'm</p>
+          <h1 class="hero-title">Your Name</h1>
+          <p class="hero-subtitle">
+            A short sentence about who you are and what you do. This is
+            placeholder text you can replace later.
+          </p>
+          <a href="#projects" class="btn">View My Work</a>
         </div>
+      </section>
+
+      <!-- ===== Projects ===== -->
+      <section id="projects" class="projects">
+        <div class="container">
+          <div class="project-grid">
+            <!-- Copy one project-card <a> block to add another project -->
+            <a href="sunquest.html" class="project-card">
+              <img class="project-image" src="assets/images/sunquest/sunquestBrochure.png" alt="Sunquest brochure" loading="lazy">
+              <div class="project-body">
+                <h3>Sunquest</h3>
+                <p>A brief description of the project.</p>
+              </div>
+            </a>
+
+            <a href="parksketch.html" class="project-card">
+              <img class="project-image" src="assets/images/parksketch/parkSketchCrop.png" alt="Park sketch detail" loading="lazy">
+              <div class="project-body">
+                <h3>Park Sketch</h3>
+                <p>A brief description of the project.</p>
+              </div>
+            </a>
+
+            <a href="film.html" class="project-card">
+              <img class="project-image" src="assets/images/film/filmEndA.jpg" alt="Film still" loading="lazy">
+              <div class="project-body">
+                <h3>Film</h3>
+                <p>A brief description of the project.</p>
+              </div>
+            </a>
+
+            <a href="pavilion.html" class="project-card">
+              <img class="project-image" src="assets/images/pavilion/pavilionSketches.jpg" alt="Pavilion sketches" loading="lazy">
+              <div class="project-body">
+                <h3>Pavilion</h3>
+                <p>A brief description of the project.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer id="contact" class="site-footer">
+      <div class="container footer-content">
+        <p>&copy; <span id="year"></span> Joshua Chin</p>
+        <ul class="footer-social">
+          <li>
+            <a
+              href="https://www.instagram.com/jc8880"
+              class="footer-icon"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <img src="assets/images/icons/Instagram_Glyph_Black.jpg" alt="" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/joshua-chin-850510264"
+              class="footer-icon"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+            >
+              <img src="assets/images/icons/linkedIn-logo-black.png" alt="" />
+            </a>
+          </li>
+        </ul>
+        <a href="mailto:joshchin8880@gmail.com" class="footer-email"
+          >joshchin8880@gmail.com</a
+        >
       </div>
-    </section>
-  </main>
+    </footer>
 
-  <!-- ===== Footer ===== -->
-  <footer id="contact" class="site-footer">
-    <div class="container footer-content">
-      <p>&copy; <span id="year"></span> Joshua Chin</p>
-      <ul class="footer-social">
-        <li>
-          <a href="https://www.instagram.com/jc8880" class="footer-icon" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="assets/images/icons/Instagram_Glyph_Black.jpg" alt="">
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/joshua-chin-850510264" class="footer-icon" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <img src="assets/images/icons/linkedIn-logo-black.png" alt="">
-          </a>
-        </li>
-      </ul>
-      <a href="mailto:joshchin8880@gmail.com" class="footer-email">joshchin8880@gmail.com</a>
-    </div>
-  </footer>
-
-  <!-- Scripts (loaded last so the page content exists first) -->
-  <script src="js/script.js"></script>
-</body>
+    <!-- Scripts (loaded last so the page content exists first) -->
+    <script src="js/script.js"></script>
+  </body>
 </html>
